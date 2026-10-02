@@ -1,0 +1,39 @@
+# Supabase CLI config (used by `supabase start` / `supabase db reset` for a local stack).
+# On Supabase Cloud the same migrations are applied with `supabase db push --include-seed`.
+project_id = "wasa-bhakkar"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54322
+major_version = 17
+
+[db.seed]
+enabled = true
+sql_paths = ["./seed.sql"]
+
+[realtime]
+enabled = true
+
+[storage]
+enabled = true
+file_size_limit = "10MiB"
+
+[auth]
+enabled = true
+site_url = "http://localhost:3000"
+# Accounts are created by the Admin only (Edge Function with the service key), never self sign-up.
+enable_signup = false
+jwt_expiry = 3600
+
+[auth.email]
+enable_signup = false
+enable_confirmations = false
+
+[edge_runtime]
+enabled = true

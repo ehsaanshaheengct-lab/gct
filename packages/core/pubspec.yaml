@@ -1,0 +1,22 @@
+name: wasa_core
+description: Models, business rules, repositories and services shared by the WASA Bhakkar apps.
+version: 0.1.0
+publish_to: none
+resolution: workspace
+
+environment:
+  sdk: ^3.9.0
+  flutter: ">=3.35.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  supabase_flutter: ^2.18.0
+  flutter_riverpod: ^3.4.3
+  intl: ^0.20.2
+  crypto: ^3.0.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0

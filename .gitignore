@@ -1,0 +1,24 @@
+# Flutter / Dart
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+pubspec_overrides.yaml
+*.iml
+.idea/
+.vscode/
+**/ephemeral/
+**/Pods/
+**/.gradle/
+**/local.properties
+**/GeneratedPluginRegistrant.*
+**/*.keystore
+**/key.properties
+
+# secrets: copy env.example.json to env.json
+env.json
+**/env.json
+supabase/.temp/
+supabase/.branches/
+.env

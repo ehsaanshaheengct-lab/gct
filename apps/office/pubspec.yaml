@@ -1,0 +1,31 @@
+name: wasa_office
+description: WASA Bhakkar office app (Windows desktop + Web) for Admin, Operators and Officers.
+publish_to: none
+version: 0.1.0+1
+resolution: workspace
+
+environment:
+  sdk: ^3.9.0
+  flutter: ">=3.35.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  wasa_core:
+    path: ../../packages/core
+  wasa_ui:
+    path: ../../packages/ui
+  supabase_flutter: ^2.18.0
+  flutter_riverpod: ^3.4.3
+  go_router: ^18.0.2
+  intl: ^0.20.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true

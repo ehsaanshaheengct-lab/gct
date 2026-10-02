@@ -1,0 +1,11 @@
+name: wasa_workspace
+publish_to: none
+environment:
+  sdk: ^3.9.0
+workspace:
+  - apps/office
+  - apps/driver
+  - packages/core
+  - packages/ui
+dev_dependencies:
+  flutter_lints: ^6.0.0
