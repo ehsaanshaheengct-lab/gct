@@ -1,5 +1,6 @@
 -- Row Level Security: each role sees and changes only what it should.
-\set QUIET on
+-- Runs with psql (tool/db_test.sh), `supabase db query --linked -f`, or the Supabase SQL Editor.
+-- Any failed check stops the script with an error; the last line shows "ok".
 
 -- helper: run the rest of the transaction as a given user
 create or replace function pg_temp.login(p_uid uuid) returns void language plpgsql as $$
@@ -141,4 +142,4 @@ begin
 end $$;
 rollback;
 
-\echo '   row level security: ok'
+select 'row level security: ok' as result;

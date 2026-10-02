@@ -22,21 +22,25 @@ See **PLAN.md** for the database design and build phases, and **DECISIONS.md** f
 
 The apps add `@wasabhakkar.demo` to the username (Supabase Auth uses e-mail addresses).
 
-## Quick start
-1. **Supabase project:** create a project at supabase.com, then from this folder:
+## Quick start (Windows PC)
+Needs: Node.js LTS, Flutter (stable), and Visual Studio 2022 with "Desktop development with C++" (for the Windows build).
+
+1. **Database + checks, in one script** (from this folder, in PowerShell):
    ```
-   npx supabase login
-   npx supabase link --project-ref YOUR-PROJECT-REF
-   npx supabase db push --include-seed
+   powershell -ExecutionPolicy Bypass -File tool\setup_supabase.ps1
    ```
-   In the dashboard, under Authentication → Sign In / Providers, turn **off** "Allow new users to sign up".
-2. **Keys:** copy `env.example.json` to `env.json` and fill in the Project URL and the **publishable** (or anon) key from Project Settings → API. Never put the service key in this file.
+   It writes `apps\office\env.json` and `apps\driver\env.json` (git-ignored), logs in to Supabase (browser), links the project (asks for the **database password**), runs `supabase db push --include-seed`, runs the SQL permission tests on the real project, and signs in as operator1, driver1 and admin to check what each can see, and that none of them can mark Paid.
+   For a different project, pass `-ProjectRef`, `-Url` and `-PublishableKey`. Use `-SkipPush` to re-run only the checks.
+2. In the Supabase dashboard, under Authentication → Sign In / Providers, turn **off** "Allow new users to sign up".
 3. **Run:**
    ```
    flutter pub get
-   cd apps/office && flutter run -d windows --dart-define-from-file=../../env.json
-   cd apps/driver && flutter run --dart-define-from-file=../../env.json
+   cd apps\office
+   flutter run -d windows --dart-define-from-file=env.json
    ```
+   Sign in as `operator1` / `Wasa@1234`. You should land on the Dashboard.
+
+The apps read their keys from `env.json` (Flutter's `--dart-define-from-file`), not from a `.env` file. Only the **publishable** key goes there, never the service key.
 
 ## Checks
 ```

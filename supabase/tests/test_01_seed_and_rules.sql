@@ -1,5 +1,6 @@
 -- Seed sanity + database rules (run as the owner, like the Supabase SQL editor)
-\set QUIET on
+-- Runs with psql (tool/db_test.sh), `supabase db query --linked -f`, or the Supabase SQL Editor.
+-- Any failed check stops the script with an error; the last line shows "ok".
 
 do $$
 declare
@@ -89,4 +90,4 @@ begin
   end;
 end $$;
 
-\echo '   seed and rules: ok'
+select 'seed and rules: ok' as result;
