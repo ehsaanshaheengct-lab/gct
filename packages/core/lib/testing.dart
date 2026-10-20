@@ -2,3 +2,4 @@
 library;
 
 export 'src/testing/fake_auth_repository.dart';
+export 'src/testing/fake_vehicles.dart';

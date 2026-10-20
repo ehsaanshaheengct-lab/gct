@@ -10,7 +10,7 @@ A working demo for **WASA Bhakkar**. The office creates a challan in 3 taps (WHO
 
 See **PLAN.md** for the database design and build phases, and **DECISIONS.md** for the choices made.
 
-> Status: **Phase 1 done** (scaffold, theme, schema + RLS + seed, sign-in with role-based routing). The full Windows set-up guide, demo script and integration notes are written in Phase 7.
+> Status: **Phase 2 done**: sign-in with role-based routing; Vehicle Board with live status, photos and area rates; vehicle detail (gallery, details, history, maintenance, change status); Masters (vehicle types, vehicles + photos, drivers, areas, tariff grid with history). Next: Phase 3, the 3-tap challan. The full Windows guide, demo script and integration notes are written in Phase 7.
 
 ## Demo logins (password for all: `Wasa@1234`)
 | Username | Role | Name |

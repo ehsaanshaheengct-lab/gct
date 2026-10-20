@@ -10,3 +10,4 @@ export 'src/widgets/brand.dart';
 export 'src/widgets/login_screen.dart';
 export 'src/widgets/state_views.dart';
 export 'src/widgets/status.dart';
+export 'src/widgets/vehicle_card.dart';

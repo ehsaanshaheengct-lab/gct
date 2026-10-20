@@ -34,3 +34,13 @@ Choices made while building, so they can be reviewed or reversed later.
 23. **`flutter_svg` added** (not in the original list) to draw the vehicle illustrations and the logo placeholder.
 24. Office app defaults to English, driver app to Urdu. The choice is remembered on the device.
 25. **Testing without Docker:** this build environment could not pull Supabase images, so `tool/db_test.sh` runs the real migrations and seed on plain PostgreSQL, with a small stand-in for the Supabase `auth`/`storage` schemas (`supabase/tests/shim.sql`).
+
+## Phase 2: vehicles and masters
+26. **Vehicle status:** On Job is never set by hand; it follows challans (Phase 3). Operators and Admin switch between Available and Maintenance with `set_vehicle_status()`. Maintenance needs a reason, and an optional expected-back date that is not in the past. A vehicle on an active challan cannot be switched. Going into Maintenance opens a maintenance log entry; coming back closes it. "Days in maintenance" is counted from these entries.
+27. **Photos:** up to 4 per vehicle, max 8 MB, JPG/PNG/WebP. Positions are kept as 0..n-1, the first is the main photo, and deleting a photo closes the gap. Admin sets each photo's kind (front/side/back/equipment) and drags to reorder. Without a photo, the type's drawing is shown.
+28. **Tariff edits** go through `set_tariff_rate()`: the new rate becomes active at once and the old row is kept, inactive. "Effective from" is recorded for the records; future-dated rates are not scheduled automatically.
+29. **Masters are deactivated, not deleted** (no delete buttons), so old challans and history keep their references. A new vehicle type shows "not set" in the tariff grid until Admin enters its rates.
+30. **Linking a driver to an app login** is done on the Users screen (Phase 6/7), which needs the Admin Edge Function. Seeded drivers are already linked.
+31. **Board layout:** cards size to their content in equal-width columns, so different fonts (Windows, Urdu) never cut text. Latin text inside Urdu lines, and Urdu inside English lines, is direction-isolated so numbers and brackets render correctly.
+32. **Local Supabase-lite** (`tool/local_supabase/`) runs the real Supabase Auth and PostgREST binaries without Docker, for end-to-end tests here. It has no Realtime; the apps still work and only lose live auto-refresh.
+33. The Supabase Dart client sorts **descending** by default, so every `.order()` call states `ascending:` explicitly.

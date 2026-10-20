@@ -4,6 +4,9 @@ import 'package:go_router/go_router.dart';
 import 'package:wasa_core/wasa_core.dart';
 import 'package:wasa_ui/wasa_ui.dart';
 
+import 'features/masters/masters_screen.dart';
+import 'features/vehicles/vehicle_board_screen.dart';
+import 'features/vehicles/vehicle_detail_screen.dart';
 import 'shell/office_shell.dart';
 import 'shell/placeholder_page.dart';
 
@@ -38,7 +41,6 @@ enum OfficePage {
 
   /// Which phase builds the real screen (shown on the placeholder until then).
   int get phase => switch (this) {
-        vehicles || masters => 2,
         newChallan || challans => 3,
         paymentSimulator => 5,
         _ => 6,
@@ -77,6 +79,13 @@ String? officeRedirect(AuthView view, String location) {
   }
 }
 
+/// The screen for each page (placeholders until their phase is built).
+Widget pageFor(OfficePage p) => switch (p) {
+      OfficePage.vehicles => const VehicleBoardScreen(),
+      OfficePage.masters => const MastersScreen(),
+      _ => PlaceholderPage(page: p),
+    };
+
 final officeRouterProvider = Provider<GoRouter>((ref) {
   final auth = ValueNotifier<AuthView>(ref.read(authViewProvider));
   ref.listen(authViewProvider, (_, next) => auth.value = next);
@@ -102,8 +111,15 @@ final officeRouterProvider = Provider<GoRouter>((ref) {
           for (final p in OfficePage.values)
             GoRoute(
               path: p.path,
-              pageBuilder: (_, _) => NoTransitionPage(child: PlaceholderPage(page: p)),
+              pageBuilder: (_, _) => NoTransitionPage(child: pageFor(p)),
             ),
+          GoRoute(
+            path: '/vehicles/:id',
+            pageBuilder: (_, state) => NoTransitionPage(
+              key: state.pageKey,
+              child: VehicleDetailScreen(vehicleId: state.pathParameters['id']!),
+            ),
+          ),
         ],
       ),
     ],

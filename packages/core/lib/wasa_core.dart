@@ -2,11 +2,14 @@
 library;
 
 export 'src/config/app_config.dart';
+export 'src/data_providers.dart';
 export 'src/format/format.dart';
 export 'src/models/enums.dart';
+export 'src/models/masters.dart';
 export 'src/models/profile.dart';
 export 'src/providers.dart';
 export 'src/repositories/auth_repository.dart';
+export 'src/repositories/vehicle_repository.dart';
 export 'src/rules/challan_number.dart';
 export 'src/rules/qr_codec.dart';
 export 'src/rules/status_machine.dart';

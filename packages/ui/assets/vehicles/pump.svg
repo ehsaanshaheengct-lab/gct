@@ -1,0 +1,19 @@
+<!-- WASA Bhakkar: pump (flat illustration, replace with a real photo in Masters > Vehicles) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 150">
+  <rect width="240" height="150" rx="16" fill="#EEF5FB"/>
+  <ellipse cx="120" cy="136" rx="104" ry="6" fill="#D5E1EA"/>
+  <path d="M12 104 L44 100" stroke="#455A64" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="12" cy="104" r="5" fill="#455A64"/>
+  <rect x="40" y="96" width="156" height="12" rx="3" fill="#455A64"/>
+  <rect x="60" y="50" width="96" height="46" rx="6" fill="#2E7D32"/>
+  <path d="M68 60 H148 M68 68 H148 M68 76 H148" stroke="#1B5E20" stroke-width="3"/>
+  <rect x="132" y="34" width="8" height="18" fill="#37474F"/>
+  <circle cx="176" cy="76" r="18" fill="#78909C"/>
+  <circle cx="176" cy="76" r="8" fill="#455A64"/>
+  <path d="M194 76 H220 V120" fill="none" stroke="#546E7A" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M176 58 V40 H210" fill="none" stroke="#2A8BD4" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="108" cy="121" r="15" fill="#263238"/>
+  <circle cx="108" cy="121" r="6.8" fill="#B0BEC5"/>
+  <circle cx="140" cy="121" r="15" fill="#263238"/>
+  <circle cx="140" cy="121" r="6.8" fill="#B0BEC5"/>
+</svg>

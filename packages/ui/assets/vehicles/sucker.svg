@@ -1,0 +1,21 @@
+<!-- WASA Bhakkar: sucker (flat illustration, replace with a real photo in Masters > Vehicles) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 150">
+  <rect width="240" height="150" rx="16" fill="#EEF5FB"/>
+  <ellipse cx="120" cy="136" rx="104" ry="6" fill="#D5E1EA"/>
+  <rect x="18" y="104" width="206" height="9" rx="3" fill="#37474F"/>
+  <rect x="22" y="50" width="140" height="56" rx="28" fill="#0E8C99"/>
+  <rect x="22" y="74" width="140" height="7" fill="#FFFFFF" opacity="0.85"/>
+  <rect x="118" y="36" width="34" height="16" rx="4" fill="#546E7A"/>
+  <circle cx="30" cy="78" r="10" fill="#0B6E78" stroke="#FFFFFF" stroke-width="2"/>
+  <path d="M24 92 Q10 104 18 122 Q22 132 34 130" fill="none" stroke="#263238" stroke-width="6" stroke-linecap="round"/>
+  <path d="M166 112 V62 Q166 54 174 54 H204 Q212 54 216 64 L224 86 V112 Z" fill="#0B5FA5"/>
+  <path d="M180 62 H202 Q207 62 209 68 L214 84 H180 Z" fill="#BFE6F0"/>
+  <rect x="170" y="92" width="50" height="4" fill="#FFFFFF" opacity="0.8"/>
+  <rect x="218" y="96" width="8" height="10" rx="2" fill="#FFD54F"/>
+  <circle cx="56" cy="122" r="14" fill="#263238"/>
+  <circle cx="56" cy="122" r="6.3" fill="#B0BEC5"/>
+  <circle cx="82" cy="122" r="14" fill="#263238"/>
+  <circle cx="82" cy="122" r="6.3" fill="#B0BEC5"/>
+  <circle cx="190" cy="122" r="14" fill="#263238"/>
+  <circle cx="190" cy="122" r="6.3" fill="#B0BEC5"/>
+</svg>

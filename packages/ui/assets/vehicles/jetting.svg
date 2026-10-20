@@ -1,0 +1,23 @@
+<!-- WASA Bhakkar: jetting (flat illustration, replace with a real photo in Masters > Vehicles) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 150">
+  <rect width="240" height="150" rx="16" fill="#EEF5FB"/>
+  <ellipse cx="120" cy="136" rx="104" ry="6" fill="#D5E1EA"/>
+  <rect x="18" y="104" width="206" height="9" rx="3" fill="#37474F"/>
+  <rect x="70" y="54" width="92" height="52" rx="22" fill="#2A8BD4"/>
+  <rect x="70" y="76" width="92" height="6" fill="#FFFFFF" opacity="0.85"/>
+  <circle cx="42" cy="78" r="26" fill="#F2B705"/>
+  <circle cx="42" cy="78" r="18" fill="none" stroke="#263238" stroke-width="3"/>
+  <circle cx="42" cy="78" r="11" fill="none" stroke="#263238" stroke-width="3"/>
+  <circle cx="42" cy="78" r="4" fill="#263238"/>
+  <path d="M20 92 Q8 112 22 126" fill="none" stroke="#263238" stroke-width="4" stroke-linecap="round"/>
+  <path d="M166 112 V62 Q166 54 174 54 H204 Q212 54 216 64 L224 86 V112 Z" fill="#0B5FA5"/>
+  <path d="M180 62 H202 Q207 62 209 68 L214 84 H180 Z" fill="#BFE6F0"/>
+  <rect x="170" y="92" width="50" height="4" fill="#FFFFFF" opacity="0.8"/>
+  <rect x="218" y="96" width="8" height="10" rx="2" fill="#FFD54F"/>
+  <circle cx="56" cy="122" r="14" fill="#263238"/>
+  <circle cx="56" cy="122" r="6.3" fill="#B0BEC5"/>
+  <circle cx="82" cy="122" r="14" fill="#263238"/>
+  <circle cx="82" cy="122" r="6.3" fill="#B0BEC5"/>
+  <circle cx="190" cy="122" r="14" fill="#263238"/>
+  <circle cx="190" cy="122" r="6.3" fill="#B0BEC5"/>
+</svg>

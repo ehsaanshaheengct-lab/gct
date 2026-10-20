@@ -28,12 +28,17 @@ stop() {
   for svc in gateway postgrest auth; do
     if [ -f "$DATA/$svc.pid" ]; then kill "$(cat "$DATA/$svc.pid")" 2>/dev/null || true; rm -f "$DATA/$svc.pid"; fi
   done
+  # leftovers from an interrupted run
+  pkill -f "$BIN/auth/auth serve" 2>/dev/null || true
+  pkill -f "^$BIN/postgrest" 2>/dev/null || true
+  pkill -f "node $HERE/gateway.mjs" 2>/dev/null || true
+  sleep 1
 }
 stop
 [ "${1:-}" = stop ] && { echo "stopped"; exit 0; }
 
 echo "== database $DB"
-as_pg dropdb --if-exists "$DB"
+as_pg dropdb --if-exists --force "$DB"
 as_pg createdb "$DB"
 sed "s/current_database_placeholder/$DB/" $HERE/bootstrap.sql > "$DATA/bootstrap.sql"
 psql_file "$DATA/bootstrap.sql"
@@ -48,7 +53,7 @@ export GOTRUE_JWT_SECRET=$JWT_SECRET GOTRUE_JWT_EXP=3600 GOTRUE_JWT_AUD=authenti
 export GOTRUE_JWT_DEFAULT_GROUP_NAME=authenticated GOTRUE_JWT_ADMIN_ROLES=service_role
 export GOTRUE_DISABLE_SIGNUP=true GOTRUE_EXTERNAL_EMAIL_ENABLED=true GOTRUE_MAILER_AUTOCONFIRM=true
 export GOTRUE_API_HOST=127.0.0.1 PORT=9999 GOTRUE_LOG_LEVEL=warn
-(cd "$BIN/auth" && ./auth migrate) > "$DATA/auth-migrate.log" 2>&1 || { tail -20 "$DATA/auth-migrate.log"; exit 1; }
+"$BIN/auth/auth" migrate > "$DATA/auth-migrate.log" 2>&1 || { tail -20 "$DATA/auth-migrate.log"; exit 1; }
 
 echo "== app migrations + seed"
 for f in supabase/migrations/*.sql; do echo "   $(basename "$f")"; psql_file "$f"; done
@@ -56,7 +61,7 @@ psql_file supabase/seed.sql
 rm -rf "$DATA/storage"
 
 echo "== starting services"
-(cd "$BIN/auth" && nohup ./auth serve > "$ROOT/$DATA/auth.log" 2>&1 & echo $! > "$ROOT/$DATA/auth.pid")
+nohup "$BIN/auth/auth" serve > "$DATA/auth.log" 2>&1 & echo $! > "$DATA/auth.pid"
 PGRST_DB_URI="postgres://authenticator:local-authenticator@127.0.0.1:5432/$DB" \
 PGRST_DB_SCHEMAS=public PGRST_DB_ANON_ROLE=anon PGRST_JWT_SECRET=$JWT_SECRET \
 PGRST_DB_EXTRA_SEARCH_PATH=public,extensions PGRST_SERVER_PORT=3000 PGRST_LOG_LEVEL=warn \
