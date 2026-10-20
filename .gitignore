@@ -22,3 +22,7 @@ env.json
 supabase/.temp/
 supabase/.branches/
 .env
+
+# local Supabase-lite
+tool/local_supabase/.data/
+**/env.local.json

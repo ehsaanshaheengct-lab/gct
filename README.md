@@ -50,3 +50,7 @@ cd apps/office && flutter test        # role routing + login widget test
 cd apps/driver && flutter test        # driver routing + Urdu login widget test
 tool/db_test.sh                       # migrations + seed + RLS tests on a local PostgreSQL
 ```
+
+## Local Supabase-lite (no Docker)
+For development and end-to-end tests, `tool/local_supabase/start.sh` runs the **real Supabase Auth** and **PostgREST** binaries on a local PostgreSQL. It applies the same migrations and seed, and adds a small gateway (`gateway.mjs`: URL routing, CORS, photo storage). It writes `apps/*/env.local.json`; build or run the apps with `--dart-define-from-file=env.local.json`. Realtime is not included. Use it for testing only; production uses Supabase Cloud.
+
